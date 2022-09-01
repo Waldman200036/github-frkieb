@@ -10,21 +10,30 @@ import './main.css';
 let rootElement = document.getElementById('root');
 ReactDOM.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="expenses" element={<Expenses />} />
-        <Route path="invoices" element={<Invoices />}>
-          <Route path=":invoiceId" element={<Invoice />} />
-        </Route>
-        path="*" element=
-        {
-          <main style={{ padding: '1rem' }}>
-            <p>There's nothing here!</p>
+<Routes>
+  <Route path="/" element={<App />}>
+    <Route path="expenses" element={<Expenses />} />
+    <Route path="invoices" element={<Invoices />}>
+      <Route
+        index
+        element={
+          <main style={{ padding: "1rem" }}>
+            <p>Select an invoice</p>
           </main>
         }
-        />
-      </Route>
-    </Routes>
+      />
+      <Route path=":invoiceId" element={<Invoice />} />
+    </Route>
+    <Route
+      path="*"
+      element={
+        <main style={{ padding: "1rem" }}>
+          <p>There's nothing here!</p>
+        </main>
+      }
+    />
+  </Route>
+</Routes>
   </BrowserRouter>,
   rootElement
 );
