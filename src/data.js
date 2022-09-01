@@ -1,3 +1,5 @@
+
+/*Listing the Invoices*/
 let invoices = [
   {
     name: "Santa Monica",
@@ -33,4 +35,9 @@ let invoices = [
 
 export function getInvoices() {
   return invoices;
+}
+export function getInvoice(number) {
+  return invoices.find(
+    (invoice) => invoice.number === number
+  );
 }
